@@ -1,5 +1,8 @@
 # The Docker image that will be used to build your app
-image: gdsky
+image: windows-shared-runners-manager-1
+# Functions that should be executed before the build script is run
+before_script:
+  - yarn install
 pages:
   script:
     - react-scripts build
@@ -11,6 +14,3 @@ pages:
     # This ensures that only pushes to the default branch will trigger
     # a pages deploy
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-# Functions that should be executed before the build script is run
-before_script:
-  - yarn install
